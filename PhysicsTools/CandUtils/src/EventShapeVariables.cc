@@ -39,7 +39,7 @@ EventShapeVariables::EventShapeVariables(const std::vector<math::RThetaPhiVector
 /// needs the number of steps to determine how fine the granularity of the algorithm in phi 
 /// should be
 double 
-EventShapeVariables::isotropy(const unsigned int numberOfSteps) const
+EventShapeVariables::isotropy(unsigned int numberOfSteps) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   double phi = 0, eIn =-1., eOut=-1.;
@@ -59,7 +59,7 @@ EventShapeVariables::isotropy(const unsigned int numberOfSteps) const
 /// the return value is 1 for spherical and 0 linear events in r-phi. This function needs the
 /// number of steps to determine how fine the granularity of the algorithm in phi should be
 double 
-EventShapeVariables::circularity(const unsigned int numberOfSteps) const
+EventShapeVariables::circularity(unsigned int numberOfSteps) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   double circularity=-1, phi=0, area = 0;
@@ -182,7 +182,7 @@ EventShapeVariables::D(double r) const
 
 
 double
-EventShapeVariables::thrust( const unsigned int numberOfSteps = 100 ) const
+EventShapeVariables::thrust( unsigned int numberOfSteps = 100 ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
@@ -190,7 +190,7 @@ EventShapeVariables::thrust( const unsigned int numberOfSteps = 100 ) const
   double phi=0;
   double rho=0;
   double area = 0;
-  for ( unsigned int i = 0; i < (int)inputVectors_.size(); ++i ){
+  for (int i = 0; i < (int)inputVectors_.size(); ++i ){
   	area+=sqrt(inputVectors_[i].X()*inputVectors_[i].X()+inputVectors_[i].Y()*inputVectors_[i].Y()+inputVectors_[i].Z()*inputVectors_[i].Z());
   }
   for(unsigned int i=0; i<numberOfSteps; ++i){
@@ -214,7 +214,7 @@ EventShapeVariables::thrust( const unsigned int numberOfSteps = 100 ) const
 
 
 double
-EventShapeVariables::thrustminor( const unsigned int numberOfSteps = 100 ) const
+EventShapeVariables::thrustminor( unsigned int numberOfSteps = 100 ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
@@ -222,7 +222,7 @@ EventShapeVariables::thrustminor( const unsigned int numberOfSteps = 100 ) const
   double phi=0;
   double rho=0;
   double area = 0;
-  for ( unsigned int i = 0; i < (int)inputVectors_.size(); ++i ){
+  for (int i = 0; i < (int)inputVectors_.size(); ++i ){
         area+=sqrt(inputVectors_[i].X()*inputVectors_[i].X()+inputVectors_[i].Y()*inputVectors_[i].Y()+inputVectors_[i].Z()*inputVectors_[i].Z());
   }
   for(unsigned int i=0; i<numberOfSteps; ++i){
@@ -235,7 +235,7 @@ EventShapeVariables::thrustminor( const unsigned int numberOfSteps = 100 ) const
 		double ys=0; 
 		double zs=0;
                 for(unsigned int j=0; j<inputVectors_.size(); ++j){
-                        xs = sin(phi)*cos(rho)*inputVectorsi_[j].Z() - sin(rho)*inputVectors_[j].Y();
+                        xs = sin(phi)*cos(rho)*inputVectors_[j].Z() - sin(rho)*inputVectors_[j].Y();
                 	ys = sin(rho)*inputVectors_[j].X() - cos(phi)*cos(rho)*inputVectors_[j].Z();
                 	zs = cos(phi)*cos(rho)*inputVectors_[j].Y() - sin(phi)*cos(rho)*inputVectors_[j].X();
                 	asum+=sqrt(xs*xs+ys*ys+zs*zs);
