@@ -46,11 +46,11 @@ class EventShapeVariables {
   /// the return value is 1 for spherical events and 0 for events linear in r-phi. This function 
   /// needs the number of steps to determine how fine the granularity of the algorithm in phi 
   /// should be
-  double isotropy(const unsigned int& numberOfSteps = 1000) const;
+  double isotropy(const unsigned int numberOfSteps = 1000 ) const;
   
   /// the return value is 1 for spherical and 0 linear events in r-phi. This function needs the 
   /// number of steps to determine how fine the granularity of the algorithm in phi should be
-  double circularity(const unsigned int& numberOfSteps = 1000) const;
+  double circularity(const unsigned int numberOfSteps = 1000 ) const;
 
   /// 1.5*(q1+q2) where 0<=q1<=q2<=q3 are the eigenvalues of the momemtum tensor 
   /// sum{p_j[a]*p_j[b]}/sum{p_j**2} normalized to 1. Return values are 1 for spherical, 3/4 for 
@@ -71,11 +71,11 @@ class EventShapeVariables {
   ///
   ///
   ///
-  double thrust( int& numberOfSteps = 100 ) const;
+  double thrust( const unsigned int numberOfSteps = 100 ) const;
   ///
   ///
   ///
-  double thrustminor( int& numberOfSteps = 100 ) const;
+  double thrustminor( const unsigned int numberOfSteps  = 100 ) const;
 
 
 

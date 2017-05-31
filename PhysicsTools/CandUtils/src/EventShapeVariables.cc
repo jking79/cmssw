@@ -39,7 +39,7 @@ EventShapeVariables::EventShapeVariables(const std::vector<math::RThetaPhiVector
 /// needs the number of steps to determine how fine the granularity of the algorithm in phi 
 /// should be
 double 
-EventShapeVariables::isotropy(const unsigned int& numberOfSteps) const
+EventShapeVariables::isotropy(const unsigned int numberOfSteps) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   double phi = 0, eIn =-1., eOut=-1.;
@@ -59,7 +59,7 @@ EventShapeVariables::isotropy(const unsigned int& numberOfSteps) const
 /// the return value is 1 for spherical and 0 linear events in r-phi. This function needs the
 /// number of steps to determine how fine the granularity of the algorithm in phi should be
 double 
-EventShapeVariables::circularity(const unsigned int& numberOfSteps) const
+EventShapeVariables::circularity(const unsigned int numberOfSteps) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   double circularity=-1, phi=0, area = 0;
@@ -182,7 +182,7 @@ EventShapeVariables::D(double r) const
 
 
 double
-EventShapeVariables::thrust( int& numberOfSteps = 100 ) const
+EventShapeVariables::thrust( const unsigned int numberOfSteps = 100 ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
@@ -200,7 +200,7 @@ EventShapeVariables::thrust( int& numberOfSteps = 100 ) const
         	double asum=0;
         	double tmp=0;
         	for(unsigned int j=0; j<inputVectors_.size(); ++j){
-                	asum+=abs(cos(phi)*cos(rho)*inputVectors[j].X()+sin(phi)*cos(rho)*inputVectors[j].Y()+sin(rho)*inputVectors[j].Z());
+                	asum+=abs(cos(phi)*cos(rho)*inputVectors_[j].X()+sin(phi)*cos(rho)*inputVectors_[j].Y()+sin(rho)*inputVectors_[j].Z());
         	}
 		tmp=asum/area;
         	if( thrust<0 || tmp>thrust ){
@@ -214,7 +214,7 @@ EventShapeVariables::thrust( int& numberOfSteps = 100 ) const
 
 
 double
-EventShapeVariables::thrustminor( int& numberOfSteps = 100 ) const
+EventShapeVariables::thrustminor( const unsigned int numberOfSteps = 100 ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
