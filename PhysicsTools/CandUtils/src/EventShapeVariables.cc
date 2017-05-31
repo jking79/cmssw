@@ -182,7 +182,7 @@ EventShapeVariables::D(double r) const
 
 
 double
-EventShapeVariables::thrust( unsigned int numberOfSteps = 100 ) const
+EventShapeVariables::thrust( unsigned int numberOfSteps ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
@@ -214,7 +214,7 @@ EventShapeVariables::thrust( unsigned int numberOfSteps = 100 ) const
 
 
 double
-EventShapeVariables::thrustminor( unsigned int numberOfSteps = 100 ) const
+EventShapeVariables::thrustminor( unsigned int numberOfSteps ) const
 {
   const double deltaPhi=2*TMath::Pi()/numberOfSteps;
   const double deltaRho=TMath::Pi()/numberOfSteps;
@@ -249,6 +249,3 @@ EventShapeVariables::thrustminor( unsigned int numberOfSteps = 100 ) const
   return thrust;
 }
 
-
-
-}
