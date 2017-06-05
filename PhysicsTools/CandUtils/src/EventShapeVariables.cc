@@ -40,8 +40,7 @@ EventShapeVariables::EventShapeVariables(const vlq::JetCollection& inputVectors)
 {
   inputVectors_.reserve( inputVectors.size() );
   for (  auto& jet : inputVectors ){
-    TLorentzVector  tljet = jet.getP4();
-    inputVectors_.push_back(math::XYZVector(tljet.x(), tljet.y(), tljet.z()));
+    inputVectors_.push_back(math::XYZVector(jet.getP4().x(), jet.getP4().y(), jet.getP4().z()));
   }
 }
   
