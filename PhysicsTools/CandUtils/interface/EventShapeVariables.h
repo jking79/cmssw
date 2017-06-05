@@ -40,8 +40,6 @@ class EventShapeVariables {
   explicit EventShapeVariables(const std::vector<math::RhoEtaPhiVector>& inputVectors);  
   /// constructor from r theta phi coordinates
   explicit EventShapeVariables(const std::vector<math::RThetaPhiVector>& inputVectors);  
-  /// constructor from vlq::JetCollection
-  explicit EventShapeVariables(const vlq::JetCollection& inputVectors);
   /// default destructor
   ~EventShapeVariables(){};
 

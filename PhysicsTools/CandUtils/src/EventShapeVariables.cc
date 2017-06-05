@@ -34,15 +34,6 @@ EventShapeVariables::EventShapeVariables(const std::vector<math::RThetaPhiVector
     inputVectors_.push_back(math::XYZVector(vec->x(), vec->y(), vec->z()));
   }
 }
-
-/// constructor from vlq::JetCollection
-EventShapeVariables::EventShapeVariables(const vlq::JetCollection& inputVectors)
-{
-  inputVectors_.reserve( inputVectors.size() );
-  for (  auto& jet : inputVectors ){
-    inputVectors_.push_back(math::XYZVector(jet.getP4().x(), jet.getP4().y(), jet.getP4().z()));
-  }
-}
   
 /// the return value is 1 for spherical events and 0 for events linear in r-phi. This function 
 /// needs the number of steps to determine how fine the granularity of the algorithm in phi 
